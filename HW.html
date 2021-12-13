@@ -9,29 +9,40 @@ table, th, td {
 </head>
 <body>
 
-<form action="HW.html" method="get>
-  <label for="cls">שכבה:</label>
-  <select id="cls" name="cls">
+<form action="HW.html" method="get">
+<table style="border: 0px">
+<tr style="border: 0px">
+  <td style="border: 0px"><select id="scl" name="scl">
+    <option value="612960">יח"ד אשדוד</option>
+  </select></td>
+  <td style="border: 0px"><label for="scl">:בית ספר</label></td></tr>
+
+<tr style="border: 0px">
+  <td style="border: 0px"><select id="cls" name="cls">
     <option value="א">א</option>
     <option value="ב">ב</option>
     <option value="ג">ג</option>
     <option value="ד">ד</option>
 	<option value="ה">ה</option>
 	<option value="ו">ו</option>
-  </select><br>
+  </select></td>
+  <td style="border: 0px"><label for="cls">:שכבה</label></td></tr>
   
-  <label for="clsn">כיתה:</label>
-  <select id="clsn" name="clsn">
+<tr>
+  <td style="border: 0px"><select id="clsn" name="clsn">
     <option value="1">1</option>
     <option value="2">2</option>
     <option value="3">3</option>
     <option value="4">4</option>
 	<option value="5">5</option>
 	<option value="6">6</option>
-  </select><br>
-  <input type="submit" value="הצג">
+  </select></td>
+  <td style="border: 0px"><label for="clsn">:כיתה</label></td>
+  </tr>
+  <tr><td style="border: 0px"><input type="submit" value="הצג"></td></tr>
+  </table>
 </form>
-    <table>
+    <table id="hw_tbl">
 	<tr>
     <th>Title</th>
     <th>Description</th>
@@ -40,18 +51,21 @@ table, th, td {
 
 <script>
 
+
 //function hw(cls,clsn) {
 const urlParams = new URLSearchParams(window.location.search);
 const cls = urlParams.get('cls');
 const clsn = urlParams.get('clsn');
-				  
+const scl = urlParams.get('scl');
+
 document.getElementById("cls" ).value=cls;
 document.getElementById("clsn").value=clsn;
+document.getElementById("scl").value=scl;
 
 //var url = 'https://safe.mashov.info/rss/rsshomework.aspx?semel=612960&classcode=%D7%91&classnum=2';
-var url = "https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fsafe.mashov.info%2Frss%2Frsshomework.aspx%3Fsemel%3D612960%26classcode%3D" + cls + "%26classnum%3D" + clsn;
+var url = "https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fsafe.mashov.info%2Frss%2Frsshomework.aspx%3Fsemel%3D" + scl + "%26classcode%3D" + cls + "%26classnum%3D" + clsn;
 
-const myList = document.querySelector('table');
+const myList = document.getElementById("hw_tbl" );
 //const myList = document.getElementById("demo").innerHTML;
 const myRequest = new Request(url);
 
