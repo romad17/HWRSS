@@ -44,6 +44,9 @@ table, th, td {
 const urlParams = new URLSearchParams(window.location.search);
 const cls = urlParams.get('cls');
 const clsn = urlParams.get('clsn');
+				  
+document.getElementById("cls" ).value=cls;
+document.getElementById("clsn").value=clsn;
 
 //var url = 'https://safe.mashov.info/rss/rsshomework.aspx?semel=612960&classcode=%D7%91&classnum=2';
 var url = "https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fsafe.mashov.info%2Frss%2Frsshomework.aspx%3Fsemel%3D612960%26classcode%3D" + cls + "%26classnum%3D" + clsn;
