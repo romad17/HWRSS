@@ -1,0 +1,70 @@
+<html>
+<head>
+<style>
+table, th, td {
+  border: 1px solid black;
+  font-family: "Arial", "Courier New", monospace;
+}
+</style>
+</head>
+<body>
+
+<form action="HW.html" method="get>
+  <label for="cls">שכבה:</label>
+  <select id="cls" name="cls">
+    <option value="א">א</option>
+    <option value="ב">ב</option>
+    <option value="ג">ג</option>
+    <option value="ד">ד</option>
+	<option value="ה">ה</option>
+	<option value="ו">ו</option>
+  </select><br>
+  
+  <label for="clsn">כיתה:</label>
+  <select id="clsn" name="clsn">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+	<option value="5">5</option>
+	<option value="6">6</option>
+  </select><br>
+  <input type="submit">
+</form>
+    <table>
+	<tr>
+    <th>Title</th>
+    <th>Description</th>
+  </tr>
+    </table>
+
+<script>
+
+//function hw(cls,clsn) {
+const urlParams = new URLSearchParams(window.location.search);
+const cls = urlParams.get('cls');
+const clsn = urlParams.get('clsn');
+
+//var url = 'https://safe.mashov.info/rss/rsshomework.aspx?semel=612960&classcode=%D7%91&classnum=2';
+var url = "https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fsafe.mashov.info%2Frss%2Frsshomework.aspx%3Fsemel%3D612960%26classcode%3D" + cls + "%26classnum%3D" + clsn;
+
+const myList = document.querySelector('table');
+//const myList = document.getElementById("demo").innerHTML;
+const myRequest = new Request(url);
+
+fetch(myRequest)
+  .then(response => response.json())
+  .then(data => {
+    for (const product of data.items) {
+      let listItem = document.createElement('tr');
+      listItem.appendChild(document.createElement('td')).appendChild(document.createElement('pre')).textContent = product.title;
+	  listItem.appendChild(document.createElement('td')).appendChild(document.createElement('pre')).textContent = product.description.split("<br>").join("\n");
+      myList.appendChild(listItem);
+    }
+  })
+  .catch(console.error);
+//}
+</script>
+
+</body>
+</html>
