@@ -134,7 +134,17 @@ const myList = document.getElementById("hw_tbl" );
 const myRequest = new Request(url);
 
 fetch(myRequest)
-  .then(response => response.json())
+  .then(function(response) {
+        if (!response.ok) {
+			//alert(response.statusText);
+			let listItem = document.createElement('tr');
+			if (response.status==429) errtext="יותר מדי בקשות. נסו יותר מאוחר";
+			else errtext = response.status + " " + response.statusText;
+            listItem.appendChild(document.createElement('td')).appendChild(document.createElement('pre')).textContent = errtext;
+			myList.appendChild(listItem);
+			}
+        return response.json();
+		})
   .then(data => {
     for (const product of data.items) {
       let listItem = document.createElement('tr');
