@@ -139,7 +139,7 @@ fetch(myRequest)
     for (const product of data.items) {
       let listItem = document.createElement('tr');
       listItem.appendChild(document.createElement('td')).appendChild(document.createElement('pre')).textContent = product.title;
-	  listItem.appendChild(document.createElement('td')).appendChild(document.createElement('pre')).textContent = product.description.split("				<br>").join("\n");
+	  listItem.appendChild(document.createElement('td')).appendChild(document.createElement('pre')).textContent = product.description.split("<br>").join("\n");
       myList.appendChild(listItem);
     }
   })
