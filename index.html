@@ -1,112 +1,123 @@
 <!-- v1 -->
-<html>
-<head>
-<style>
+<html dir="rtl">
+	<head>
+		<style>
 table, th, td {
   border: 1px solid black;
   font-family: "Arial", "Courier New", monospace;
 }
-</style>
-</head>
-<body>
+		</style>
+	</head>
+	<body>
+		<form action="index.html" method="get">
+			<table style="border: 0px">
+				<tr style="border: 0px">
+					<td style="border: 0px">
+						<select id="scl" name="scl">
+							<option value="614370">אופק</option>
+							<option value="670331">אורט ימי</option>
+							<option value="611368">אחדות</option>
+							<option value="620070">אילנות</option>
+							<option value="614040">אמירים</option>
+							<option value="613208">ארזים</option>
+							<option value="614313">אשכול</option>
+							<option value="620468">בי"ח אסותא</option>
+							<option value="610097">גאולים</option>
+							<option value="620252">גוונים</option>
+							<option value="620187">גלים</option>
+							<option value="614503">היובל</option>
+							<option value="611962">המגינים</option>
+							<option value="612283">הראל</option>
+							<option value="613703">חופית</option>
+							<option value="623975">חנ"מ חדש</option>
+							<option value="612960">יח"ד</option>
+							<option value="614875">יצחק רבין</option>
+							<option value="640128">מקיף א כללי</option>
+							<option value="770461">מקיף ג' ע"ש רוגוזין</option>
+							<option value="640482">מקיף ד'</option>
+							<option value="640672">מקיף ה' כללי</option>
+							<option value="644310">מקיף ו'</option>
+							<option value="644377">מקיף ז'</option>
+							<option value="644484">מקיף ח'</option>
+							<option value="644583">מקיף חדש ט'</option>
+							<option value="620005">מקיף חדש רובע יז</option>
+							<option value="630764">מרכז נוער ע"ש משה קו</option>
+							<option value="613596">נוף ים</option>
+							<option value="620526">ניר</option>
+							<option value="644146">עלומים</option>
+							<option value="613000">צמח א'</option>
+							<option value="612911">צפרירים</option>
+							<option value="614958">קשת</option>
+							<option value="610485">רימונים</option>
+							<option value="612747">רננים</option>
+							<option value="612333">רעים</option>
+							<option value="614156">רתמים</option>
+							<option value="612556">שז"ר</option>
+							<option value="615237">שירת הים</option>
+							<option value="614115">שקד</option>
+						</select>
+					</td>
+					<td style="border: 0px">
+						<label for="scl">:בית ספר</label>
+					</td>
+				</tr>
+				<tr style="border: 0px">
+					<td style="border: 0px">
+						<select id="cls" name="cls">
+							<option value="א">א</option>
+							<option value="ב">ב</option>
+							<option value="ג">ג</option>
+							<option value="ד">ד</option>
+							<option value="ה">ה</option>
+							<option value="ו">ו</option>
+							<option value="ז">ז</option>
+							<option value="ח">ח</option>
+							<option value="ט">ט</option>
+							<option value="י">י</option>
+							<option value="יא">יא</option>
+							<option value="יב">יב</option>
+							<option value="יג">יג</option>
+							<option value="יד">יד</option>
+						</select>
+					</td>
+					<td style="border: 0px">
+						<label for="cls">:שכבה</label>
+					</td>
+				</tr>
+				<tr>
+					<td style="border: 0px">
+						<select id="clsn" name="clsn">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+						</select>
+					</td>
+					<td style="border: 0px">
+						<label for="clsn">:כיתה</label>
+					</td>
+				</tr>
+				<tr>
+					<td style="border: 0px">
+						<input type="submit" value="הצג"/>
+					</tr>
+				</table>
+			</form>
+			<table id="hw_tbl">
+				<tr>
+					<th>Title</th>
+					<th>Description</th>
+				</tr>
+			</table>
+			<script>
 
-<form action="index.html" method="get">
-<table style="border: 0px">
-<tr style="border: 0px">
-  <td style="border: 0px"><select id="scl" name="scl">
-    <option value="614370">אופק</option>
-<option value="670331">אורט ימי</option>
-<option value="611368">אחדות</option>
-<option value="620070">אילנות</option>
-<option value="614040">אמירים</option>
-<option value="613208">ארזים</option>
-<option value="614313">אשכול</option>
-<option value="620468">בי"ח אסותא</option>
-<option value="610097">גאולים</option>
-<option value="620252">גוונים</option>
-<option value="620187">גלים</option>
-<option value="614503">היובל</option>
-<option value="611962">המגינים</option>
-<option value="612283">הראל</option>
-<option value="613703">חופית</option>
-<option value="623975">חנ"מ חדש</option>
-<option value="612960">יח"ד</option>
-<option value="614875">יצחק רבין</option>
-<option value="640128">מקיף א כללי</option>
-<option value="770461">מקיף ג' ע"ש רוגוזין</option>
-<option value="640482">מקיף ד'</option>
-<option value="640672">מקיף ה' כללי</option>
-<option value="644310">מקיף ו'</option>
-<option value="644377">מקיף ז'</option>
-<option value="644484">מקיף ח'</option>
-<option value="644583">מקיף חדש ט'</option>
-<option value="620005">מקיף חדש רובע יז</option>
-<option value="630764">מרכז נוער ע"ש משה קו</option>
-<option value="613596">נוף ים</option>
-<option value="620526">ניר</option>
-<option value="644146">עלומים</option>
-<option value="613000">צמח א'</option>
-<option value="612911">צפרירים</option>
-<option value="614958">קשת</option>
-<option value="610485">רימונים</option>
-<option value="612747">רננים</option>
-<option value="612333">רעים</option>
-<option value="614156">רתמים</option>
-<option value="612556">שז"ר</option>
-<option value="615237">שירת הים</option>
-<option value="614115">שקד</option>
-  </select></td>
-  <td style="border: 0px"><label for="scl">:בית ספר</label></td></tr>
 
-<tr style="border: 0px">
-  <td style="border: 0px"><select id="cls" name="cls">
-    <option value="א">א</option>
-    <option value="ב">ב</option>
-    <option value="ג">ג</option>
-    <option value="ד">ד</option>
-	<option value="ה">ה</option>
-	<option value="ו">ו</option>
-	  <option value="ז">ז</option>
-<option value="ח">ח</option>
-<option value="ט">ט</option>
-<option value="י">י</option>
-<option value="יא">יא</option>
-<option value="יב">יב</option>
-<option value="יג">יג</option>
-<option value="יד">יד</option>
-
-  </select></td>
-  <td style="border: 0px"><label for="cls">:שכבה</label></td></tr>
-  
-<tr>
-  <td style="border: 0px"><select id="clsn" name="clsn">
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-	<option value="5">5</option>
-	<option value="6">6</option>
-	  <option value="7">7</option>
-	  <option value="8">8</option>
-	  <option value="9">9</option>
-	  <option value="10">10</option>
-  </select></td>
-  <td style="border: 0px"><label for="clsn">:כיתה</label></td>
-  </tr>
-  <tr><td style="border: 0px"><input type="submit" value="הצג"></td></tr>
-  </table>
-</form>
-    <table id="hw_tbl">
-	<tr>
-    <th>Title</th>
-    <th>Description</th>
-  </tr>
-    </table>
-
-<script>
-
-
-//function hw(cls,clsn) {
 const urlParams = new URLSearchParams(window.location.search);
 const cls = urlParams.get('cls');
 const clsn = urlParams.get('clsn');
@@ -120,7 +131,6 @@ document.getElementById("scl").value=scl;
 var url = "https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fsafe.mashov.info%2Frss%2Frsshomework.aspx%3Fsemel%3D" + scl + "%26classcode%3D" + cls + "%26classnum%3D" + clsn;
 
 const myList = document.getElementById("hw_tbl" );
-//const myList = document.getElementById("demo").innerHTML;
 const myRequest = new Request(url);
 
 fetch(myRequest)
@@ -129,13 +139,11 @@ fetch(myRequest)
     for (const product of data.items) {
       let listItem = document.createElement('tr');
       listItem.appendChild(document.createElement('td')).appendChild(document.createElement('pre')).textContent = product.title;
-	  listItem.appendChild(document.createElement('td')).appendChild(document.createElement('pre')).textContent = product.description.split("<br>").join("\n");
+	  listItem.appendChild(document.createElement('td')).appendChild(document.createElement('pre')).textContent = product.description.split("				<br>").join("\n");
       myList.appendChild(listItem);
     }
   })
   .catch(console.error);
-//}
-</script>
-
-</body>
-</html>
+				</script>
+			</body>
+		</html>
