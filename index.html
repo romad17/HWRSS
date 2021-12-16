@@ -149,7 +149,7 @@ fetch(myRequest)
     for (const product of data.items) {
       let listItem = document.createElement('tr');
       listItem.appendChild(document.createElement('td')).appendChild(document.createElement('pre')).textContent = product.title.split(" - ").join("\n");
-	  listItem.appendChild(document.createElement('td')).appendChild(document.createElement('pre')).textContent = product.description.split("<br>").join("\n");
+	  listItem.appendChild(document.createElement('td')).appendChild(document.createElement('pre')).textContent = product.description.split("<br>").join("\n").replace("נושא השיעור:","<B>נושא השיעור:</B").replace("ש.ב.:","<B>ש.ב.:</B>");
       myList.appendChild(listItem);
     }
   })
